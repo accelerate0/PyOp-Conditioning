@@ -1,15 +1,17 @@
 import numpy as np
 import math
+import random
 
 # + ========================================= +
+# +++ Variable Interval Scheduling Generator +++
+#
+#       Utilizes the Hoffman-Fleshler Constant Probability Distribution
+#       Based on Hantula (1991) and Fleshler et Hoffman (1962)
+#       Program Parameters
+#           N = Amount of terms
+#           m = mean
+#           n = the nth term of progression
 
-# Variable Interval Scheduling Generator
-# Utilizes the Hoffman-Fleshler Constant Probability Distribution
-    # Based on Hantula (1991) and Fleshler et Hoffman (1962)
-# Program Parameters
-    # N = Amount of terms
-    # m = mean
-    # n = the nth term of progression
 def var_int(N, mean):
     var_int.new_array = []
     var_int.progression = list(range(1, N, 1))
@@ -27,11 +29,14 @@ def var_int(N, mean):
         c = (N - n + 1) * math.log(N - n + 1, np.e)
         var_int.new_array_add = mean * (b - c)
         var_int.new_array.append(var_int.new_array_add)
-    print(var_int.new_array)
+    var_int.output_random = random.shuffle(var_int.new_array)
+    var_int.output_straight = var_int.new_array
 
 # + ========================================= +
+# +++ Random Interval Scheduling Generator +++
+#
+#       Based on Millenson (1963) and Bancroft et Bourrett (2008)
 
-# Random Interval Scheduling Generator
 
 def rand_int(interval, amount): #()
   rand_int.amount = 4 # Amount of intervals (sec)
@@ -58,3 +63,9 @@ def rand_int(interval, amount): #()
               interval_multiplier = n + (rand_int.interval * rand_int.multiplier)
               rand_int.new_array.append(interval_multiplier)
   print("Throughout the entire RI session of", (rand_int.amount*rand_int.interval),"(sec), RI trigger generated for:", rand_int.new_array, "sec")
+  rand_int.output = rand_int.new_array
+
+# + ========================================= +
+# +++ Variable Ratio Scheduling Generator +++
+#
+#
