@@ -1,17 +1,27 @@
 # PyOp-Conditioning
 ## Overview
+
 Contains many features of operant conditioning modules coded in Python for uses in generating timers and contingency trigger as well as for integration in automated systems such as TDT Pynapse.
 
+## Runtime
+
+ - Two files are available to run:
+	 - `pyopcond_standalone.py` is the standalone program with verbose output printing.
+	 - `pyopcond_dep.py` is for usages in other programs such as TDT Pynapse runtime environment where the script can be imported and the output variables used.
+
 ## Dependencies
-- Python 3 is required, as well as the math and numpy modules
-- This is a dependency for Dr Chandler's Lab Program Scripts
+- Python 3 is required, as well as the math, random, and numpy Python modules
+- This is a dependency for Dr Chandler's Lab Program Scripts.  [Repo Link](https://github.com/accelerate0/Chandler-Lab-Program)
 
 ## Usages & Features
+- All user inputs should be numeric values only.
 
-| Feature | Command Usage | Description |
-|--|--|--|
-| Variable Interval (VI) Scheduling | `def var_int(N, m)` where N is the amount of intervals and m is the mean VI schedule time| Python iteration of the Hoffman-Fleshler Constant Probability Distribution |
-| Random Interval Scheduling | x | x |
-| Fixed Interval Scheduling | x | x |
-| Fixed Random Scheduling | x | x |
+| Reinforcement | Command Usage | Parameters | Output Variable | Description
+|--|--|--|--|--|
+| Variable Interval (VI) Scheduling | `var_int(N, m)` | `N` is the amount of intervals and `m` is the mean VI schedule time. | `var_int.output_random` randomizes the array while `var_int.output_straight`gives the array a sequential order, both given in sec. | Reinforcement is provided after a random (unpredictable) amount of time has passes and following a specific behavior being performed based on the Hoffman-Fleshler Constant Probability Distribution. |
+| Random Interval (RI) Scheduling | `rand_int(interval, amount)` | `interval` is the length of each interval (sec) while `amount` is the amount of total intervals acting as a multiplier. | `rand_int.output` as a array in sec. | Reinforcement arrangement in which the first response after an interval is reinforced, the duration of the intervals varies randomly from reinforcement to reinforcement, and a fixed probability of reinforcement over time is used to reinforce a response. |
+| Variable Ratio (VR) Scheduling | `var_ratio(amount, min, max)` | `amount` is the total amount of reward, `min` is the minimum probability range for inputs before a reward is given while `max` is the maximum range of inputs for probability before a reward is given. Units are in inputs ie lever presses. | `var_ratio.output` where it is given in subject response inputs ie lever presses before reward trigger. | Scheduling of reinforcement where a behavior is reinforced after a random number of responses. | 
+| Random Ratio (RR) Scheduling | `rand_ratio(mean, amount)` | `mean` is the mean ratio value while `amount` is the amount of response inputs, or "amount of mean instances". | `rand_int.output` given in responses ie lever presses  before a reward is triggered. | Scheduling in which the number of responses required for each reinforcement varies randomly from reinforcement to reinforcement. |
+
+
 
