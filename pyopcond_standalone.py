@@ -133,9 +133,9 @@ def rand_ratio(mean, amount): #()
         if rand_ratio.random <= rand_ratio.prob:
             rand_ratio.new_array.append(rand_ratio.n)
     # Declaring Output Variable
-    rand_int.output = rand_int.new_array
+    rand_ratio.output = rand_ratio.new_array
     # Print Output
-    print("(RR) Array output:", rand_int.output)
+    print("(RR) Array output:", rand_ratio.output)
 
 
 
