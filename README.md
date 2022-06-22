@@ -8,6 +8,7 @@ Contains many features of operant conditioning modules coded in Python for uses 
  - Two files are available to run:
 	 - `pyopcond_standalone.py` is the standalone program with verbose output printing.
 	 - `pyopcond_dep.py` is for usages in other programs such as TDT Pynapse runtime environment where the script can be imported and the output variables used.
+ - The output is all in an array fashion via Python LIST format.
 
 ## Dependencies
 - Python 3 is required, as well as the math, random, and numpy Python modules
