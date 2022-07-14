@@ -112,9 +112,35 @@ def rand_ratio(mean, amount): #()
     rand_ratio.output = rand_ratio.new_array
 
 
+#==========================================================#
+#   Random Interval WITHPI (RI) Scheduling Generator       #
+#==========================================================#
+# Based on Med-Associate WITHPI Function
 
-
-
+def rand_int_withpi(interval, amount): #()
+    # Declaring Input Variables
+    rand_int_withpi.amount = amount # Amount of intervals (sec)
+    rand_int_withpi.interval = interval # Length of each interval (sec)
+    rand_int_withpi.prob = rand_int_withpi.interval/10000
+    # Creating Array For within RI
+    rand_int_withpi.new_array = []
+    rand_int_withpi.progression = list(range(1, rand_int_withpi.interval, 1))
+    rand_int_withpi.progression.append(rand_int_withpi.interval)
+    # Creating Array For between RI
+    rand_int_withpi.multiplier = list(range(1, rand_int_withpi.amount, 1))
+    rand_int_withpi.multiplier.append(rand_int_withpi.amount)
+    # Calculations
+    for rand_int_withpi.multiplier in range(rand_int_withpi.amount):
+        for rand_int_withpi.n in rand_int_withpi.progression:
+            rand_int_withpi.random = np.random.uniform(0,1)
+            if rand_int_withpi.random <= rand_int_withpi.prob:
+                if rand_int_withpi.multiplier == 1:
+                  rand_int_withpi.new_array.append(rand_int_withpi.n)
+                else:
+                  rand_int_withpi.interval_multiplier = rand_int_withpi.n + (rand_int_withpi.interval * rand_int_withpi.multiplier)
+                  rand_int_withpi.new_array.append(rand_int_withpi.interval_multiplier)
+    # Declaring Output Variable
+    rand_int_withpi.output = rand_int_withpi.new_array
 
 
 # ======= #
